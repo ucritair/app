@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+/* uPlot legend styling */
+.u-legend {
+  font-size: 12px;
+  padding: 4px 0;
+}
+.u-legend .u-series {
+  padding: 2px 8px;
+}
+.u-legend .u-series th {
+  color: #9ca3af;
+  font-weight: 500;
+}
+.u-legend .u-series td {
+  color: #e5e7eb;
+  font-variant-numeric: tabular-nums;
+}
