@@ -1,5 +1,6 @@
 // Custom vendor service
 export const CUSTOM_SERVICE_UUID = 'fc7d4395-1019-49c4-a91b-7491ecc40000';
+export const DEVICE_NAME_PREFIX = 'uCrit';
 
 // Helper to build full 128-bit UUID from 16-bit suffix
 function vndUuid(suffix: number): string {

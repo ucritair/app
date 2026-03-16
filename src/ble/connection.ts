@@ -1,5 +1,5 @@
 import {
-  CUSTOM_SERVICE_UUID, ESS_SERVICE_UUID,
+  CUSTOM_SERVICE_UUID, DEVICE_NAME_PREFIX, ESS_SERVICE_UUID,
   ESS_TEMPERATURE, ESS_HUMIDITY, ESS_CO2, ESS_PM2_5, ESS_PRESSURE, ESS_PM1_0, ESS_PM10,
   CHAR_CELL_SELECTOR, CHAR_CELL_DATA,
 } from './constants.ts';
@@ -50,8 +50,11 @@ class BleConnection {
 
     try {
       this.device = await navigator.bluetooth.requestDevice({
-        filters: [{ services: [CUSTOM_SERVICE_UUID] }],
-        optionalServices: [ESS_SERVICE_UUID],
+        filters: [
+          { services: [CUSTOM_SERVICE_UUID] },
+          { namePrefix: DEVICE_NAME_PREFIX },
+        ],
+        optionalServices: [CUSTOM_SERVICE_UUID, ESS_SERVICE_UUID],
       });
 
       this.device.addEventListener('gattserverdisconnected', () => this.handleDisconnect());
